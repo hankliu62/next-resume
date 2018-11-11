@@ -1,0 +1,126 @@
+@import 'app.less';
+
+@footer-font-color: @white;
+
+.footer {
+  color: @footer-font-color;
+  background-image: linear-gradient(-180deg, @blue-2, @blue-3);
+
+  .footer-info {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 35px 10px 0;
+    text-align: center;
+
+    .footer-column {
+      display: inline-block;
+      text-align: left;
+
+      .title {
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      .content {
+        font-size: 16px;
+      }
+
+      .desc {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      &.footer-contact {
+        .content {
+          margin: 12px 0 0 0;
+          padding: 0;
+
+          .contact-item {
+            list-style: none;
+
+            .contact-name {
+              display: inline-block;
+              width: 94px;
+            }
+
+            .contact-value {
+              display: inline-block;
+
+              .email,
+              .tel {
+                color: @footer-font-color;
+                text-decoration: none;
+
+                &:active,
+                &:focus,
+                &:hover, {
+                  color: @footer-font-color;
+                }
+              }
+            }
+
+            + .contact-item {
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+
+      &.footer-about {
+        .qrcode-wrap {
+          margin-top: 26px;
+
+          img {
+            width: 87px;
+          }
+
+          + .content {
+            display: none;
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: (@screen-md-width - 1px)) {
+      .ant-col-sm-24 {
+        text-align: left;
+
+        + .ant-col-sm-24 {
+          margin-top: 23px;
+        }
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background-color: @footer-font-color;
+      content: '';
+      opacity: 0.66;
+    }
+  }
+
+  .copyright {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 21px 0;
+    text-align: center;
+    font-size: 16px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background-color: @footer-font-color;
+      opacity: 0.66;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "app.less": true
+  },
+  "plugins": [
+    "babel",
+    "react"
+  ],
+  "rules": {
+    "arrow-body-style": [
+      "error",
+      "always"
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "func-names": "off",
+    "function-paren-newline": [
+      "error",
+      "consistent"
+    ],
+    "import/first": "off",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "^[~]",
+          "^engine$"
+        ]
+      }
+    ],
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "max-len": [
+      "error",
+      120
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 500
+      }
+    ],
+    "no-console": "error",
+    "no-plusplus": "off",
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    "no-underscore-dangle": "off",
+    "object-curly-newline": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-danger": "off",
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off",
+    "react/sort-comp": [
+      "error",
+      {
+        "order": [
+          "static-methods",
+          "lifecycle",
+          "everything-else",
+          "/^_?on.+$/",
+          "/^_?render.+$/",
+          "render"
+        ],
+        "groups": {
+          "lifecycle": [
+            "displayName",
+            "propTypes",
+            "defaultProps",
+            "state",
+            "constructor",
+            "componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "componentDidUpdate",
+            "componentWillUnmount"
+          ]
+        }
+      }
+    ],
+    "react/prop-types": ["error", { "ignore": ["children"] }],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "block": {
+          "exceptions": [
+            "*"
+          ]
+        }
+      }
+    ]
+  }
+}

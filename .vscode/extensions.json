@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "eamodio.gitlens", // git 提交记录
+    "streetsidesoftware.code-spell-checker", // 单词拼写检查
+
+    // es 相关
+    "dbaeumer.vscode-eslint", // 代码规范检查
+    "dzannotti.vscode-babel-coloring", // babel 语法高亮
+    "amatiasq.sort-imports", // import 排序
+
+    // style 相关
+    "shinnn.stylelint"
+  ]
+}

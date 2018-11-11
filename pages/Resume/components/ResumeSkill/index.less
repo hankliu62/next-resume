@@ -1,0 +1,70 @@
+@import 'app.less';
+
+.resume-skill-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title-wrapper {
+    .title {
+      margin-bottom: 0;
+      font-size: 48px;
+      color: @white;
+    }
+  }
+
+  .skills-wrapper {
+    width: 88%;
+    margin-top: 40px;
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      .skill {
+        display: flex;
+        justify-content: center;
+        width: 25%;
+        margin: 20px 0;
+        flex: 0 0 25%;
+
+        .skill-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 160px;
+          height: 160px;
+          background-image: linear-gradient(180deg, @white, #f0f0f0);
+          border-radius: 50%;
+          box-shadow: 0 5px 10px @black-10;
+
+          img {
+            width: 80px;
+            height: 80px;
+          }
+
+          &:hover {
+            box-shadow: 0 8px 10px @black-20;
+          }
+        }
+      }
+    }
+  }
+}
+
+.skill-popover {
+  .skill-popover-wrapper {
+    .skill-popover-title {
+      margin-bottom: 2px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .skill-popover-progress {
+      width: 200px;
+    }
+  }
+}

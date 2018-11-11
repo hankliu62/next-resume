@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noLib": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "paths": {
+      "~": ["./"],
+      "~/*": ["./*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

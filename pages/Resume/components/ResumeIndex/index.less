@@ -1,0 +1,150 @@
+@import 'app.less';
+
+@social-accounts: blog github zhihu segmentfault weibo;
+@social-account-colors: @gray-33 @gray-22 @blue-4 @green-1 @orange-1;
+@social-accounts-length: length(@social-accounts);
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 0 200;
+    stroke-dashoffset: -200;
+  }
+
+  to {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 0;
+  }
+}
+
+.resume-index-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .avatar-wrapper {
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      box-shadow: 0 5px 10px @black-10;
+    }
+  }
+
+  .name-wrapper {
+    .name {
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-size: 32px;
+    }
+  }
+
+  .signature-wrapper {
+    .signature {
+      margin-top: 20px;
+      font-size: 18px;
+      color: @gray-77;
+    }
+  }
+
+  .social-accounts-wrapper {
+    .social-accounts {
+      display: flex;
+      margin: 0;
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+
+      .social-account {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+
+        + .social-account {
+          margin-left: 50px;
+        }
+
+        .social-account-circle {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+
+          svg {
+            width: 70px;
+            height: 70px;
+
+            .account-circle {
+              fill: transparent;
+              stroke: @black-50;
+              stroke-dasharray: 0 200;
+              stroke-dashoffset: -200;
+              stroke-width: 1px;
+            }
+          }
+        }
+
+        .account-link {
+          display: inline-block;
+          position: absolute;
+          top: 17px;
+          left: 17px;
+          z-index: 2;
+
+          svg {
+            width: 36px;
+            height: 36px;
+            fill: @gray-88;
+            transition: all .3s ease;
+
+            path {
+              fill: @gray-88;
+              transition: all .3s ease;
+            }
+          }
+        }
+
+        .loop(@index) when(@index <= @social-accounts-length) {
+          @account: extract(@social-accounts, @index);
+          @account-color: extract(@social-account-colors, @index);
+
+          &.social-account-@{account} {
+            &:hover {
+              .account-link {
+                svg {
+                  fill: @account-color;
+
+                  path {
+                    fill: @account-color;
+                  }
+                }
+              }
+
+              .social-account-circle {
+                svg {
+                  .account-circle {
+                    stroke: @account-color;
+                  }
+                }
+              }
+            }
+          }
+
+          .loop(@index + 1);
+        }
+
+        .loop(1);
+
+        &:hover {
+          .social-account-circle {
+            svg {
+              .account-circle {
+                animation: draw .5s ease forwards;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

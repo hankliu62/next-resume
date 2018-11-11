@@ -1,0 +1,225 @@
+/* stylelint-disable no-descending-specificity */
+
+@slider-menus: index introduction skill project article;
+@slider-menus-length: length(@slider-menus);
+
+.resume-container {
+  .fullpage-wrapper {
+    .resume-section {
+      &.resume-section-index {
+        background-image: radial-gradient(ellipse farthest-corner, #fff, #ddd);
+      }
+
+      &.resume-section-introduction {
+        background-color: #a5b1d2;
+      }
+
+      &.resume-section-skill {
+        background-image: linear-gradient(270deg, #ff5f6d, #ffc371);
+      }
+
+      &.resume-section-project {
+        background-color: #f5f9ec;
+      }
+
+      &.resume-section-article {
+        background-image: linear-gradient(270deg, #0055c0, #3785e7);
+      }
+    }
+  }
+}
+
+.fp-viewing-resume-index,
+.fp-viewing-resume-introduction,
+.fp-viewing-resume-skill,
+.fp-viewing-resume-project,
+.fp-viewing-resume-article {
+  .fp-slidesNav,
+  #fp-nav {
+    &.fp-right {
+      right: 40px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 40px;
+
+      li {
+        height: 10px;
+        margin: 14px 0;
+        list-style: none;
+        pointer-events: auto;
+
+        a {
+          span {
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: .1;
+            transition: all .3s ease;
+          }
+
+          &.active {
+            span {
+              width: 10px;
+              height: 10px;
+              margin: 0;
+              opacity: 1;
+              transform: scale(3);
+              transform-origin: center;
+
+              &:last-child {
+                &::after {
+                  position: absolute;
+                  top: 2px;
+                  left: 2px;
+                  width: 6px;
+                  height: 6px;
+                  background-size: cover;
+                  content: "";
+                }
+              }
+            }
+          }
+        }
+
+        .fp-tooltip {
+          position: absolute;
+          top: -4px;
+          right: 36px;
+          width: auto;
+          height: 24px;
+          overflow: initial;
+          padding: 1px 10px;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 24px;
+          color: #fff;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 3px 0 0 3px;
+          opacity: 0;
+          transform: translateX(50px);
+          transition: all .6s ease;
+
+          &.fp-right {
+            right: 36px;
+          }
+
+          &::after {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -24px;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid rgba(0, 0, 0, 0.7);
+            content: "";
+          }
+        }
+
+        &:hover {
+          a {
+            &.active {
+              span {
+                width: 10px;
+                height: 10px;
+                margin: 0;
+                opacity: 1;
+                transform: scale(3);
+                transform-origin: center;
+
+                &:last-child {
+                  &::after {
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    width: 6px;
+                    height: 6px;
+                    background-size: cover;
+                    content: "";
+                  }
+                }
+              }
+            }
+
+            span {
+              width: 10px;
+              height: 10px;
+              margin: 0;
+              opacity: 1;
+              transform: scale(3);
+              transform-origin: center;
+
+              &:last-child {
+                &::after {
+                  position: absolute;
+                  top: 2px;
+                  left: 2px;
+                  width: 6px;
+                  height: 6px;
+                  background-size: cover;
+                  content: "";
+                }
+              }
+            }
+          }
+
+          .fp-tooltip {
+            transform: translateX(0);
+          }
+        }
+
+        .loop(@index) when(@index <= @slider-menus-length) {
+          @menu: extract(@slider-menus, @index);
+
+          &:nth-child(@{index}) {
+            a {
+              &.active {
+                span {
+                  &:last-child {
+                    &::after {
+                      background-image: url('/images/resume/slides/@{menu}.png');
+                    }
+                  }
+                }
+              }
+            }
+
+            &:hover {
+              a {
+                &.active {
+                  span {
+                    &:last-child {
+                      &::after {
+                        background-image: url('/images/resume/slides/@{menu}.png');
+                      }
+                    }
+                  }
+                }
+
+                span {
+                  &:last-child {
+                    &::after {
+                      background-image: url('/images/resume/slides/@{menu}.png');
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .loop(@index + 1);
+        }
+
+        .loop(1);
+      }
+    }
+  }
+}

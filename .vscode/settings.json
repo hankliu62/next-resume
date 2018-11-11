@@ -1,0 +1,77 @@
+{
+  "cSpell.language": "en",
+  "cSpell.words": [
+    "antd",
+    "backend",
+    "kbps",
+    "wechat"
+  ],
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 120,
+  "eslint.autoFixOnSave": true,
+  "files.associations": {
+    ".stylelintrc": "json"
+  },
+  "files.autoSave": "onWindowChange",
+  "files.autoSaveDelay": 5000,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": true,
+    "suppressNoRepositoryWarning": false,
+    "suppressUpdateNotice": true,
+    "suppressWelcomeNotice": true
+  },
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.remotes": [
+    {
+      "type": "GitHub",
+      "domain": "github.com"
+    },
+    {
+      "type": "Custom",
+      "domain": "git.augmentum.com.cn",
+      "name": "Origin",
+      "urls": {
+        "repository": "http://git.augmentum.com.cn/${repo}",
+        "branches": "http://git.augmentum.com.cn/${repo}/branches",
+        "branch": "http://git.augmentum.com.cn/${repo}/commits/${branch}",
+        "commit": "http://git.augmentum.com.cn/${repo}/commit/${id}",
+        "file": "http://git.augmentum.com.cn/${repo}?path=${file}${line}",
+        "fileInBranch": "http://git.augmentum.com.cn/${repo}/blob/${branch}/${file}${line}",
+        "fileInCommit": "http://git.augmentum.com.cn/${repo}/blob/${id}/${file}${line}",
+        "fileLine": "#L${line}",
+        "fileRange": "#L${start}-L${end}"
+      }
+    }
+  ],
+  "javascript.validate.enable": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    ".vscode": true
+  },
+  "sort-imports.suppress-warnings": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true
+}

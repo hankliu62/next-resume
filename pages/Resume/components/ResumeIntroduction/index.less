@@ -1,0 +1,68 @@
+@import 'app.less';
+
+.resume-introduction-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title-wrapper {
+    .title {
+      margin-bottom: 0;
+      font-size: 48px;
+      color: @white;
+    }
+  }
+
+  .self-introduction-wrapper {
+    width: 80%;
+    margin-top: 40px;
+    padding: 20px 30px;
+    background-color: @white;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px @black-10;
+
+    .introductions {
+      .introduction-item {
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .self-information-wrapper {
+    width: 80%;
+    margin-top: 30px;
+    padding: 20px 30px;
+    background-color: @white;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px @black-10;
+
+    .information-items {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      .information-item {
+        display: flex;
+        flex-direction: column;
+        width: 33.33%;
+        margin: 10px 0;
+        text-align: center;
+        flex: 0 0 33.33%;
+
+        .information-item-icon {
+          svg {
+            width: 32px;
+            height: 32px;
+            fill: @gray-77;
+          }
+        }
+
+        .information-item-data {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}
