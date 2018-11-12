@@ -210,3 +210,30 @@ export const Projects = [
 ];
 
 export const BlogLink = 'https://hankliu62.github.io/';
+
+export const Metas = [
+  {
+    name: 'renderer',
+    content: 'webkit',
+  },
+  {
+    name: 'viewport',
+    content: 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no',
+  },
+  {
+    name: 'X-UA-Compatible',
+    content: 'IE=edge,chrome=1',
+  },
+  {
+    name: 'format-detection',
+    content: 'telephone=no',
+  },
+  {
+    name: 'format-detection',
+    content: 'email=no',
+  },
+  {
+    name: 'baidu-site-verification',
+    content: 'EdvlpBgoG9',
+  },
+];

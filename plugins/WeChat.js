@@ -1,6 +1,5 @@
 import rest from 'axios';
 import _ from 'lodash';
-import wx from 'weixin-js-sdk';
 
 import Platform from './Platform';
 
@@ -11,11 +10,16 @@ export default class Wechat {
 
   static _rejectConfig = null
 
+  static _wx = null;
+
   static init = async () => {
     // 微信运行环境且不是模拟器
     if (!Platform.isWechat()) {
       return;
     }
+
+    // eslint-disable-next-line
+    Wechat._wx = require('weixin-js-sdk');
 
     const url = Platform.getUrl();
     let retryCount = 0;
@@ -25,11 +29,11 @@ export default class Wechat {
         Wechat._rejectConfig = reject;
       });
 
-      wx.ready(() => {
+      Wechat._wx.ready(() => {
         Wechat._resolveConfig();
       });
 
-      wx.error((error) => {
+      Wechat._wx.error((error) => {
         if (error.errMsg && retryCount <= 1) {
           Wechat.config(url);
           retryCount++;
@@ -58,7 +62,7 @@ export default class Wechat {
         ignoreLoading: true,
       });
 
-      wx.config({
+      Wechat._wx.config({
         beta: true,
         debug: Platform.isDebugJSSDK(),
         appId: result.appId,
@@ -93,7 +97,7 @@ export default class Wechat {
       alert(`title: ${title}\n link:${link}\n imgUrl:${shareImgUrl}`);
     }
 
-    wx.onMenuShareTimeline({ title, link, imgUrl: shareImgUrl });
+    Wechat._wx.onMenuShareTimeline({ title, link, imgUrl: shareImgUrl });
   }
 
   static initMenuShareAppMessage = async ({ title, description, link, imgUrl } = {}) => {
@@ -108,6 +112,6 @@ export default class Wechat {
       alert(`title: ${title}\ndescription: ${description}\n link:${link}\n imgUrl:${shareImgUrl}`);
     }
 
-    wx.onMenuShareAppMessage({ title, desc: description, link, imgUrl: shareImgUrl });
+    Wechat._wx.onMenuShareAppMessage({ title, desc: description, link, imgUrl: shareImgUrl });
   }
 }

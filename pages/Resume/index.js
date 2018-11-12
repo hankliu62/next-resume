@@ -1,5 +1,6 @@
 import './index.less';
 
+import { connect } from '~/plugins';
 import React, { Component } from 'react';
 import {
   ResumeArticle,
@@ -9,7 +10,9 @@ import {
   ResumeProject,
   ResumeSkill,
 } from './components';
+import reducer, * as actions from './state';
 
+import Head from 'next/head';
 // eslint-disable-next-line
 import ReactFullpage from '@fullpage/react-fullpage/dist/react-fullpage-commonjs';
 
@@ -26,10 +29,20 @@ const options = {
   arrowNavigation: true,
 };
 
-export default class Resume extends Component {
+
+@connect(
+  (state) => { return state.blog; },
+  actions
+)
+class Resume extends Component {
   render() {
     return (
       <div className="resume-container">
+        <Head>
+          <title>刘小聪 - 刘小聪的个人简历 | Web前端开发工程师 | Front-end Web Developer</title>
+          <meta name="keywords" content="刘小聪,个人简历,web前端,工程师,刘小聪的个人简历,frontend,web,developer,job,vue,react" />
+          <meta name="description" content="精通前端，涉猎后端，对前端有着浓厚的兴趣；希望能够在前端这条路上一直走下去。" />
+        </Head>
         <ReactFullpage
           {...options}
           render={() => {
@@ -61,3 +74,9 @@ export default class Resume extends Component {
     );
   }
 }
+
+export default Resume;
+
+export {
+  reducer,
+};

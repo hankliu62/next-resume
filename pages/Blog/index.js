@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
+import './index.less';
 
-export default class Blog extends Component {
+import { connect } from '~/plugins';
+import React, { Component } from 'react';
+import reducer, * as actions from './state';
+
+@connect(
+  (state) => { return state.blog; },
+  actions
+)
+class Blog extends Component {
   render() {
     return (
-      <div>
+      <div className="blog-container">
         Blog
       </div>
     );
   }
 }
+
+export default Blog;
+
+export {
+  reducer,
+};

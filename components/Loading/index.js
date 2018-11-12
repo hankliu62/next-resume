@@ -2,27 +2,26 @@ import './index.less';
 
 import * as actions from './state';
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import { Spin } from 'antd';
 import { connect } from '~/plugins/ReduxEnhance';
-import { store } from '~/pages/index';
 
 @connect(
   (state) => { return state.loading; }
 )
-class Loading extends PureComponent {
+class Loading extends Component {
   static propTypes = {
     isVisible: PropTypes.bool,
   }
 
   static show = () => {
-    store.dispatch(actions.show());
+    this.$dispatch(actions.show());
   }
 
   static hide = () => {
-    store.dispatch(actions.hide());
+    this.$dispatch(actions.hide());
   }
 
   state = {

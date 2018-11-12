@@ -73,5 +73,6 @@
     ".vscode": true
   },
   "sort-imports.suppress-warnings": true,
-  "javascript.implicitProjectConfig.experimentalDecorators": true
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "sort-imports.on-save": false
 }

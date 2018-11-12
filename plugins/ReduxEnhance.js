@@ -1,8 +1,9 @@
-import _ from 'lodash';
-import { Component, PureComponent } from 'react';
-import * as redux from 'react-redux';
-import { routerActions } from 'react-router-redux';
 import * as pagan from 'redux-pagan';
+import * as redux from 'react-redux';
+
+import { Component, PureComponent } from 'react';
+
+import _ from 'lodash';
 
 let store = null;
 let translations = null;
@@ -95,12 +96,8 @@ function i18nFromProps(key, ...formats) {
 Component.prototype.$i18nFromProps = i18nFromProps;
 PureComponent.prototype.$i18nFromProps = i18nFromProps;
 
-Component.prototype.$push = (...keys) => {
-  return store.dispatch(routerActions.push(...keys));
-};
-
-Component.prototype.$replace = (...keys) => {
-  return store.dispatch(routerActions.replace(...keys));
+Component.prototype.$dispatch = (...keys) => {
+  return store.dispatch(...keys);
 };
 
 export const connect = (...args) => {

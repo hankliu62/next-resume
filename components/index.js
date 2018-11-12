@@ -1,8 +1,8 @@
 import Carousel from './Carousel';
 import Footer from './Footer';
+import Loading from './Loading';
 import MessageModal from './MessageModal';
 import QrcodeModal from './QrcodeModal';
-// import Loading from './Loading';
 import Toast from './Toast';
 
 export {
@@ -10,6 +10,6 @@ export {
   Footer,
   MessageModal,
   QrcodeModal,
-  // Loading,
+  Loading,
   Toast,
 };

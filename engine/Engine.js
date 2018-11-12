@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
-import Sessions from './Sessions';
 import Axios from './utils/Axios';
+import Sessions from './Sessions';
 
-const debug = require('debug')('bzy-vips/Engine');
+const debug = require('debug')('hankliu/Engine');
 // eslint-disable-next-line
 const { error } = console;
 

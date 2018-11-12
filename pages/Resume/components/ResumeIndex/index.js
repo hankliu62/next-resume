@@ -1,8 +1,10 @@
 import './index.less';
+
+import * as Constants from '~/constants';
+
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import ReactSVG from 'react-svg';
-import * as Constants from '~/constants';
 
 export default class ResumeIndex extends PureComponent {
   render() {
