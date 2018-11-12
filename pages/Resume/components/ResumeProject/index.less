@@ -6,10 +6,170 @@
   align-items: center;
 
   .title-wrapper {
+    margin-top: -20px;
+
     .title {
       margin-bottom: 0;
       font-size: 48px;
-      color: @gray-33;
+      line-height: 1;
+      color: @white;
+    }
+  }
+
+  .projects-wrapper {
+    width: 750px;
+    height: 480px;
+    margin: 30px auto 0;
+    padding: 12px 0 0;
+    background-color: @white;
+    border-radius: 5px;
+    box-shadow: 0 25px 20px @black-10;
+
+    .ant-carousel {
+      height: 100%;
+
+      .projects-carousel {
+        height: 100%;
+
+        .slick-list {
+          height: 100%;
+
+          .slick-track {
+            height: 100%;
+
+            .slick-slide {
+              height: 100%;
+
+              > div {
+                height: 100%;
+              }
+            }
+          }
+        }
+
+        .slick-dots {
+          bottom: -38px;
+          height: 10px;
+
+          li {
+            margin: 0 10%;
+
+            button {
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              cursor: pointer;
+              transition: background-color .3s linear;
+            }
+          }
+        }
+      }
+    }
+
+    .project-wrapper {
+      height: 100%;
+
+      .project-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .project-item {
+          display: flex;
+          flex: 1;
+
+          .project-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 140px;
+
+            .project-image {
+              max-width: 80px;
+            }
+          }
+
+          .project-content-wrapper {
+            position: relative;
+            padding: 0 30px;
+            flex: 1;
+
+            &::before {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              width: 1px;
+              background-color: @gray-ee;
+              content: "";
+            }
+
+            .project-name {
+              margin-bottom: 12px;
+              font-size: 20px;
+            }
+
+            .project-profile,
+            .project-time {
+              margin-bottom: 10px;
+              font-size: 18px;
+            }
+
+            .project-duties {
+              margin-bottom: 0;
+              padding-left: 20px;
+              font-size: 16px;
+
+              .project-duty {
+                line-height: 1.5;
+              }
+            }
+          }
+        }
+
+        .project-actions-wrapper {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          border-top: 1px solid @border-color;
+          background-color: @gray-fa;
+          list-style: none;
+
+          .project-action {
+            margin: 10px 0;
+            text-align: center;
+            font-size: 16px;
+            flex: 1;
+
+            + .project-action {
+              border-left: 1px solid @border-color;
+            }
+
+            .project-link {
+              color: @black-65;
+
+              &:focus,
+              &:hover {
+                color: @theme-color;
+              }
+
+              &:active {
+                color: @black-65;
+              }
+            }
+
+            i {
+              cursor: pointer;
+
+              &:focus,
+              &:hover {
+                color: @theme-color;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

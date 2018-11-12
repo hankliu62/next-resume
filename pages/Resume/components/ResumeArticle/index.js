@@ -1,4 +1,7 @@
 import './index.less';
+
+import * as Constants from '~/constants';
+
 import React, { PureComponent } from 'react';
 
 export default class ResumeArticle extends PureComponent {
@@ -6,7 +9,16 @@ export default class ResumeArticle extends PureComponent {
     return (
       <div className="resume-article-wrapper">
         <div className="title-wrapper">
-          <h1 className="title">个人博客</h1>
+          <h1 className="title">
+            <a
+              className="link-blog"
+              href={Constants.BlogLink}
+              target="_blank"
+              rel="noopener noreferrer external nofollow"
+            >
+              个人博客
+            </a>
+          </h1>
         </div>
       </div>
     );

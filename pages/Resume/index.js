@@ -1,19 +1,23 @@
 import './index.less';
-import React, { Component } from 'react';
-import ReactFullpage from '@fullpage/react-fullpage/dist/react-fullpage-commonjs';
 
+import React, { Component } from 'react';
 import {
   ResumeArticle,
+  ResumeExperience,
   ResumeIndex,
   ResumeIntroduction,
   ResumeProject,
   ResumeSkill,
 } from './components';
 
+// eslint-disable-next-line
+import ReactFullpage from '@fullpage/react-fullpage/dist/react-fullpage-commonjs';
+
 const options = {
   licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
-  anchors: ['resume-index', 'resume-introduction', 'resume-skill', 'resume-project', 'resume-article'],
-  navigationTooltips: ['简介', '自我介绍', '技能', '项目经历', '个人博客'],
+  anchors: ['resume-index', 'resume-introduction', 'resume-skill', 'resume-experience',
+    'resume-project', 'resume-article'],
+  navigationTooltips: ['简介', '自我介绍', '技能', '工作经历', '项目经验', '个人博客'],
   scrollBar: false,
   navigation: true,
   verticalAlign: false,
@@ -39,6 +43,9 @@ export default class Resume extends Component {
                 </div>
                 <div className="section resume-section resume-section-skill">
                   <ResumeSkill />
+                </div>
+                <div className="section resume-section resume-section-experience">
+                  <ResumeExperience />
                 </div>
                 <div className="section resume-section resume-section-project">
                   <ResumeProject />

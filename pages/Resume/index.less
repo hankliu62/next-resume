@@ -1,29 +1,33 @@
 /* stylelint-disable no-descending-specificity */
 
-@slider-menus: index introduction skill project article;
+@slider-menus: index introduction skill experience project article;
 @slider-menus-length: length(@slider-menus);
 
 .resume-container {
   .fullpage-wrapper {
     .resume-section {
       &.resume-section-index {
-        background-image: radial-gradient(ellipse farthest-corner, #fff, #ddd);
+        background: radial-gradient(ellipse farthest-corner, #fff, #ddd);
       }
 
       &.resume-section-introduction {
-        background-color: #a5b1d2;
+        background: url('/images/resume/background.png') #109085;
       }
 
       &.resume-section-skill {
-        background-image: linear-gradient(270deg, #ff5f6d, #ffc371);
+        background: linear-gradient(270deg, #ff5f6d, #ffc371);
+      }
+
+      &.resume-section-experience {
+        background: url('/images/resume/background.png') #4d5e8f;
       }
 
       &.resume-section-project {
-        background-color: #f5f9ec;
+        background: linear-gradient(270deg, #283048, #859398);
       }
 
       &.resume-section-article {
-        background-image: linear-gradient(270deg, #0055c0, #3785e7);
+        background: url('/images/resume/background.png') #945c4c;
       }
     }
   }
@@ -32,6 +36,7 @@
 .fp-viewing-resume-index,
 .fp-viewing-resume-introduction,
 .fp-viewing-resume-skill,
+.fp-viewing-resume-experience,
 .fp-viewing-resume-project,
 .fp-viewing-resume-article {
   .fp-slidesNav,
@@ -56,6 +61,7 @@
           span {
             width: 10px;
             height: 10px;
+            margin: -5px 0 0 -5px;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 50%;
             cursor: pointer;
@@ -67,7 +73,7 @@
             span {
               width: 10px;
               height: 10px;
-              margin: 0;
+              margin: -5px 0 0 -5px;
               opacity: 1;
               transform: scale(3);
               transform-origin: center;
@@ -130,7 +136,7 @@
               span {
                 width: 10px;
                 height: 10px;
-                margin: 0;
+                margin: -5px 0 0 -5px;
                 opacity: 1;
                 transform: scale(3);
                 transform-origin: center;
@@ -152,7 +158,7 @@
             span {
               width: 10px;
               height: 10px;
-              margin: 0;
+              margin: -5px 0 0 -5px;
               opacity: 1;
               transform: scale(3);
               transform-origin: center;

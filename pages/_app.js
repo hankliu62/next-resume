@@ -3,7 +3,9 @@ import '@babel/polyfill';
 
 import App, { Container } from 'next/app';
 
+import { LocaleProvider } from 'antd';
 import React from 'react';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -20,7 +22,9 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Component {...pageProps} />
+        <LocaleProvider locale={zhCN}>
+          <Component {...pageProps} />
+        </LocaleProvider>
       </Container>
     );
   }

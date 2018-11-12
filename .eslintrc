@@ -105,6 +105,7 @@
       }
     ],
     "react/prop-types": ["error", { "ignore": ["children"] }],
+    "react/destructuring-assignment": "warn",
     "spaced-comment": [
       "error",
       "always",
