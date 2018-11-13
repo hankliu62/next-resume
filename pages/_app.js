@@ -7,10 +7,11 @@ import loading from '~/components/Loading/state';
 import Engine from '~/engine';
 import res from '~/resources';
 import * as ReduxEnhance from '~/plugins/ReduxEnhance';
-import { Storage } from '~/plugins';
+import { Storage, Platform } from '~/plugins';
 
 import App, { Container } from 'next/app';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
+import classNames from 'classnames';
 import Head from 'next/head';
 import { LocaleProvider } from 'antd';
 import NProgress from 'nprogress';
@@ -61,10 +62,14 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    const { headers } = ctx.req;
+    const userAgent = headers['user-agent'];
+    const isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(userAgent);
+
+    return { pageProps, isMobile };
   }
 
-  state = { isReady: false }
+  state = { isReady: false, isMobile: false }
 
   componentDidMount = () => {
     try {
@@ -80,6 +85,8 @@ class MyApp extends App {
       // eslint-disable-next-line
       console.error(error);
     }
+
+    this.setState({ isMobile: Platform.isMobile() });
   }
 
   onInitSuccess = () => {
@@ -87,26 +94,31 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store, router } = this.props;
+    const { Component, pageProps, store, router, isMobile: isMobileFromServer } = this.props;
+    const { isMobile: isMobileFromClient } = this.state;
 
     Router.onRouteChangeStart = () => { NProgress.start(); };
     Router.onRouteChangeComplete = () => { NProgress.done(); };
     Router.onRouteChangeError = () => { NProgress.done(); };
 
+    const isMobile = isMobileFromServer || isMobileFromClient;
+
     return (
       <LocaleProvider locale={zhCN}>
         <Provider store={store}>
           <Container>
-            <Head>
-              {
-                Constants.Metas.map(({ name, content }) => {
-                  return (<meta name={name} content={content} key={name} />);
-                })
-              }
-              <script src="/scripts/baidu.statistics.min.js" type="text/javascript" />
-            </Head>
-            <Component {...pageProps} router={router} />
-            <Loading />
+            <div className={classNames('container', { 'mobile-container': isMobile })}>
+              <Head>
+                {
+                  Constants.Metas.map(({ name, content }) => {
+                    return (<meta name={name} content={content} key={name} />);
+                  })
+                }
+                <script src="/scripts/baidu.statistics.min.js" type="text/javascript" />
+              </Head>
+              <Component {...pageProps} router={router} isMobile={isMobile} />
+              <Loading />
+            </div>
           </Container>
         </Provider>
       </LocaleProvider>

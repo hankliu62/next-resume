@@ -4,13 +4,19 @@ import * as Constants from '~/constants';
 
 import { Popover, Progress } from 'antd';
 import React, { PureComponent } from 'react';
-
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export default class ResumeSkill extends PureComponent {
+  static propTypes = {
+    isMobile: PropTypes.bool,
+  }
+
   renderSkillPopover = (popover, percent) => {
+    const { isMobile } = this.props;
+
     return (
-      <div className="skill-popover-wrapper">
+      <div className={classNames('skill-popover-wrapper', { 'skill-popover-wrapper-mobile': isMobile })}>
         <h5 className="skill-popover-title">{popover}</h5>
         <div className="skill-popover-progress">
           <Progress percent={percent} showInfo={false} strokeColor="#00b38a" strokeWidth={12} />
@@ -20,6 +26,8 @@ export default class ResumeSkill extends PureComponent {
   }
 
   render() {
+    const { isMobile } = this.props;
+
     return (
       <div className="resume-skill-wrapper">
         <div className="title-wrapper">
@@ -35,7 +43,7 @@ export default class ResumeSkill extends PureComponent {
                   <li className={classNames('skill', `skill-${type}`)} key={type}>
                     <Popover
                       placement="top"
-                      overlayClassName="skill-popover"
+                      overlayClassName={classNames('skill-popover', { 'skill-popover-mobile': isMobile })}
                       content={this.renderSkillPopover(popover, percent)}
                     >
                       <div className="skill-wrapper">

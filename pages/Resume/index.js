@@ -2,6 +2,8 @@ import './index.less';
 
 import { connect } from '~/plugins';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Icon, Popover } from 'antd';
 import {
   ResumeArticle,
   ResumeExperience,
@@ -35,7 +37,19 @@ const options = {
   actions
 )
 class Resume extends Component {
+  static propTypes = {
+    isMobile: PropTypes.bool,
+  }
+
   render() {
+    const { isMobile } = this.props;
+
+    if (isMobile) {
+      options.navigation = false;
+      options.paddingTop = '5vw';
+      options.paddingBottom = '5vw';
+    }
+
     return (
       <div className="resume-container">
         <Head>
@@ -49,27 +63,37 @@ class Resume extends Component {
             return (
               <ReactFullpage.Wrapper className="resume-section-container">
                 <div className="section resume-section resume-section-index">
-                  <ResumeIndex />
+                  <ResumeIndex isMobile={isMobile} />
                 </div>
                 <div className="section resume-section resume-section-introduction">
-                  <ResumeIntroduction />
+                  <ResumeIntroduction isMobile={isMobile} />
                 </div>
                 <div className="section resume-section resume-section-skill">
-                  <ResumeSkill />
+                  <ResumeSkill isMobile={isMobile} />
                 </div>
                 <div className="section resume-section resume-section-experience">
-                  <ResumeExperience />
+                  <ResumeExperience isMobile={isMobile} />
                 </div>
                 <div className="section resume-section resume-section-project">
-                  <ResumeProject />
+                  <ResumeProject isMobile={isMobile} />
                 </div>
                 <div className="section resume-section resume-section-article">
-                  <ResumeArticle />
+                  <ResumeArticle isMobile={isMobile} />
                 </div>
               </ReactFullpage.Wrapper>
             );
           }}
         />
+        <div className="arrow-wrapper">
+          <Icon type="up" />
+        </div>
+        <div className="pdf-wrapper">
+          <Popover placement="top" content={<span>PDF简历</span>}>
+            <a className="link-pdf" href="/resume.pdf" target="_blank">
+              <Icon type="file-pdf" />
+            </a>
+          </Popover>
+        </div>
       </div>
     );
   }

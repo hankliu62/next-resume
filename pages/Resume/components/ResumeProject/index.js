@@ -1,12 +1,17 @@
 import './index.less';
 
 import * as Constants from '~/constants';
+import { MessageModal, QrcodeModal } from '~/components';
 
 import { Carousel, Icon } from 'antd';
-import { MessageModal, QrcodeModal } from '~/components';
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ResumeProject extends PureComponent {
+  static propTypes = {
+    isMobile: PropTypes.bool,
+  }
+
   state = {
     isVisibleQr: false,
     qrValue: '',
@@ -31,6 +36,7 @@ export default class ResumeProject extends PureComponent {
   }
 
   render() {
+    const { isMobile } = this.props;
     const { isVisibleQr, qrValue, isVisibleSummary, summary } = this.state;
 
     return (
@@ -53,7 +59,9 @@ export default class ResumeProject extends PureComponent {
                           <img className="project-image" src={image} alt="Project" />
                         </div>
                         <div className="project-content-wrapper">
-                          <h5 className="project-name">{`${name}(${company})`}</h5>
+                          <h5 className="project-name">
+                            {`${name}${isMobile ? '' : `(${company})`}`}
+                          </h5>
                           <div className="project-time">{time}</div>
                           <div className="project-profile" title="profile">{profile}</div>
                           <ul className="project-duties">
