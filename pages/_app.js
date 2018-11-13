@@ -34,10 +34,9 @@ const reducer = combineReducers({
   resume,
 });
 
-const makeStore = (initialState = {}) => {
+const makeStore = () => {
   const store = createStore(
     reducer,
-    initialState,
     composeWithDevTools(
       applyMiddleware(
         thunk,

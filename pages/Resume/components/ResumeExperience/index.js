@@ -3,18 +3,55 @@ import './index.less';
 import * as Constants from '~/constants';
 
 import React, { PureComponent } from 'react';
-
 import { Carousel } from 'antd';
+import _ from 'lodash';
 
 export default class ResumeExperience extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.setThrottleRotates = _.throttle(this.setRotates, 300);
+  }
+
+  state = {
+    rotateX: 0,
+    rotateY: 0,
+  }
+
+  bindExperiences = (el) => {
+    this.experienceEl = el;
+  }
+
+  setRotates = (diffLeft, diffTop) => {
+    this.setState({ rotateY: (diffLeft - 375) / 50, rotateX: (180 - diffTop) / 50 });
+  }
+
+  onMouseMove = (e) => {
+    const diffLeft = e.clientX - this.experienceEl.offsetLeft;
+    const diffTop = e.clientY - this.experienceEl.offsetTop;
+    this.setThrottleRotates(diffLeft, diffTop);
+  }
+
+  onMouseLeave = () => {
+    this.setState({ rotateX: 0, rotateY: 0 });
+  }
+
   render() {
+    const { rotateX, rotateY } = this.state;
+
     return (
       <div className="resume-experience-wrapper">
         <div className="title-wrapper">
           <h1 className="title">工作经历</h1>
         </div>
 
-        <div className="experiences-wrapper">
+        <div
+          className="experiences-wrapper"
+          onMouseMove={this.onMouseMove}
+          onMouseLeave={this.onMouseLeave}
+          ref={this.bindExperiences}
+          style={{ transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg)` }}
+        >
           <Carousel className="experiences-carousel">
             {
               Constants.Experiences.map((experience) => {

@@ -74,15 +74,24 @@ export default class ResumeProject extends PureComponent {
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer external nofollow"
+                            title="项目链接"
                           >
                             <Icon type="link" />
                           </a>
                         </li>
                         <li className="project-action">
-                          <Icon type="qrcode" onClick={() => { this.onOpenVisibleQr(link); }} />
+                          <Icon
+                            type="qrcode"
+                            onClick={() => { this.onOpenVisibleQr(link); }}
+                            title="项目二维码"
+                          />
                         </li>
                         <li className="project-action">
-                          <Icon type="file-text" onClick={() => { this.onOpenVisibleSummary(projectSummary); }} />
+                          <Icon
+                            type="file-text"
+                            onClick={() => { this.onOpenVisibleSummary(projectSummary); }}
+                            title="项目总结"
+                          />
                         </li>
                       </ul>
                     </div>

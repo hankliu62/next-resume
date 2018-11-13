@@ -1,5 +1,19 @@
 @import 'app.less';
 
+@keyframes continue-loading {
+  0% {
+    content: '.';
+  }
+
+  50% {
+    content: '..';
+  }
+
+  100% {
+    content: '...';
+  }
+}
+
 .resume-article-wrapper {
   display: flex;
   flex-direction: column;
@@ -16,6 +30,20 @@
         cursor: pointer;
         text-decoration: none;
       }
+    }
+  }
+
+  .content-wrapper {
+    position: relative;
+    margin-top: 30px;
+    font-size: 28px;
+    color: @white;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      animation: continue-loading 2s linear infinite;
+      content: '';
     }
   }
 }
