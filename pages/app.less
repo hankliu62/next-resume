@@ -51,3 +51,15 @@
 .fontSize2rem(@px) {
   font-size: @px / @baseFontSize * 1rem;
 }
+
+.px2rem(@name, @px) {
+  @{name}: @px / @baseFontSize * 1rem;
+}
+
+.keyframes (@name, @frames) {
+  @-webkit-keyframes @name { @frames(); }
+  @-moz-keyframes @name { @frames(); }
+  @-ms-keyframes @name { @frames(); }
+  @-o-keyframes @name { @frames(); }
+  @keyframes @name { @frames(); }
+}

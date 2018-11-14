@@ -4,18 +4,6 @@
 @social-account-colors: @gray-33 @gray-22 @blue-4 @green-1 @orange-1;
 @social-accounts-length: length(@social-accounts);
 
-@keyframes draw {
-  0% {
-    stroke-dasharray: 0 200;
-    stroke-dashoffset: -200;
-  }
-
-  to {
-    stroke-dasharray: 200;
-    stroke-dashoffset: 0;
-  }
-}
-
 .resume-index-wrapper {
   display: flex;
   flex-direction: column;
@@ -139,6 +127,11 @@
           .social-account-circle {
             svg {
               .account-circle {
+                .keyframes(draw, {
+                  from { stroke-dasharray: 0 200; stroke-dashoffset: -200; }
+                  to { stroke-dasharray: 200; stroke-dashoffset: 0; }
+                });
+
                 animation: draw .5s ease forwards;
               }
             }

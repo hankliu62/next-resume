@@ -1,12 +1,17 @@
 import './index.less';
 
 import * as Constants from '~/constants';
+import { Carousel } from '~/components';
 
 import React, { PureComponent } from 'react';
-import { Carousel } from 'antd';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 export default class ResumeExperience extends PureComponent {
+  static propTypes = {
+    isMobile: PropTypes.bool,
+  }
+
   constructor(props) {
     super(props);
 
@@ -27,17 +32,30 @@ export default class ResumeExperience extends PureComponent {
   }
 
   onMouseMove = (e) => {
+    const { isMobile } = this.props;
+
+    if (isMobile) {
+      return;
+    }
+
     const diffLeft = e.clientX - this.experienceEl.offsetLeft;
     const diffTop = e.clientY - this.experienceEl.offsetTop;
     this.setThrottleRotates(diffLeft, diffTop);
   }
 
   onMouseLeave = () => {
+    const { isMobile } = this.props;
+
+    if (isMobile) {
+      return;
+    }
+
     this.setState({ rotateX: 0, rotateY: 0 });
   }
 
   render() {
     const { rotateX, rotateY } = this.state;
+    const { isMobile } = this.props;
 
     return (
       <div className="resume-experience-wrapper">
@@ -52,7 +70,15 @@ export default class ResumeExperience extends PureComponent {
           ref={this.bindExperiences}
           style={{ transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg)` }}
         >
-          <Carousel className="experiences-carousel">
+          <Carousel
+            className="experiences-carousel"
+            effect="scrollx"
+            isMobile={isMobile}
+            allowArrow
+            dots={!isMobile}
+            leftAllowIconType={isMobile ? 'left' : 'left-circle'}
+            rightAllowIconType={isMobile ? 'right' : 'right-circle'}
+          >
             {
               Constants.Experiences.map((experience) => {
                 const { company, time, post, works, image } = experience;

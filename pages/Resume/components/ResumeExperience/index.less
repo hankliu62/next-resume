@@ -23,42 +23,11 @@
     box-shadow: 0 25px 20px @black-10;
     transition: transform .3s linear;
 
-    .ant-carousel {
-      height: 100%;
-
-      .experiences-carousel {
-        height: 100%;
-
-        .slick-list {
-          height: 100%;
-
-          .slick-track {
-            height: 100%;
-
-            .slick-slide {
-              height: 100%;
-
-              > div {
-                height: 100%;
-              }
-            }
-          }
-        }
-
-        .slick-dots {
-          bottom: -50px;
-          height: 12px;
-
-          li {
-            margin: 0 10%;
-
-            button {
-              width: 12px;
-              height: 12px;
-              border-radius: 50%;
-              cursor: pointer;
-              transition: background-color .3s linear;
-            }
+    .custom-carousel-container {
+      .ant-carousel {
+        .slick-slider {
+          .slick-dots {
+            bottom: -50px;
           }
         }
       }

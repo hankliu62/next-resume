@@ -165,9 +165,11 @@
         width: 100%;
         height: 70vh;
         margin-top: 5vw;
-        padding: 3vw;
+        padding: 0;
 
         .experience-wrapper {
+          padding: 5vw 0;
+
           .experience-item {
             flex-direction: column;
 
@@ -182,7 +184,7 @@
             }
 
             .experience-content-wrapper {
-              padding: 2vw 0;
+              padding: 2vw 3vw;
 
               &:before {
                 width: 100%;
@@ -281,14 +283,6 @@
             }
           }
         }
-
-        .ant-carousel {
-          .projects-carousel {
-            .slick-dots {
-              bottom: -8vw;
-            }
-          }
-        }
       }
     }
 
@@ -317,6 +311,32 @@
       display: none;
     }
   }
+
+  .custom-carousel-container {
+    .ant-carousel {
+      .projects-carousel {
+        .slick-dots {
+          bottom: -8vw;
+        }
+      }
+    }
+
+    > i {
+      .fontSize2rem(150);
+
+      &.anticon:first-child {
+        .px2rem(left, -150);
+      }
+
+      &.anticon:last-child {
+        .px2rem(right, -150);
+      }
+
+      &.arrow-bottom {
+        .px2rem(bottom, -160);
+      }
+    }
+  }
 }
 
 .skill-popover {
@@ -333,6 +353,28 @@
       .skill-popover-progress {
         width: 40vw;
       }
+    }
+  }
+}
+
+.mobile-qrcode-modal {
+  text-align: center;
+
+  &.qrcode-modal {
+    .ant-modal {
+      display: inline-block;
+    }
+
+    .ant-modal-body {
+      padding: 3vw;
+    }
+  }
+}
+
+.mobile-message-modal {
+  .message-modal {
+    .ant-modal-body {
+      .fontSize2rem(85);
     }
   }
 }

@@ -5,17 +5,6 @@
 @slider-menus: index introduction skill experience project article;
 @slider-menus-length: length(@slider-menus);
 
-@keyframes upping {
-  0% {
-    bottom: 5px;
-    opacity: 1;
-  }
-  100% {
-    bottom: 18px;
-    opacity: .3;
-  }
-}
-
 .resume-container {
   .fullpage-wrapper {
     .resume-section {
@@ -46,6 +35,11 @@
   }
 
   .arrow-wrapper {
+    .keyframes(upping, {
+      from { bottom: 5px; opacity: 1; }
+      to { bottom: 18px; opacity: 0.3; }
+    });
+
     position: fixed;
     bottom: 5px;
     left: 50%;

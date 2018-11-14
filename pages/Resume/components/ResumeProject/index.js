@@ -1,9 +1,9 @@
 import './index.less';
 
 import * as Constants from '~/constants';
-import { MessageModal, QrcodeModal } from '~/components';
+import { MessageModal, QrcodeModal, Carousel } from '~/components';
 
-import { Carousel, Icon } from 'antd';
+import { Icon } from 'antd';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
@@ -46,7 +46,15 @@ export default class ResumeProject extends PureComponent {
         </div>
 
         <div className="projects-wrapper">
-          <Carousel className="projects-carousel">
+          <Carousel
+            className="projects-carousel"
+            effect={isMobile ? 'scrollx' : 'fade'}
+            isMobile={isMobile}
+            allowArrow
+            dots={!isMobile}
+            leftAllowIconType={isMobile ? 'left' : 'left-circle'}
+            rightAllowIconType={isMobile ? 'right' : 'right-circle'}
+          >
             {
               Constants.Projects.map((project) => {
                 const { name, company, link, time, image, duties, profile, summary: projectSummary } = project;
@@ -114,12 +122,14 @@ export default class ResumeProject extends PureComponent {
           visible={isVisibleQr}
           content={qrValue}
           onCancel={this.onCloseVisibleQr}
+          isMobile={isMobile}
         />
 
         <MessageModal
           visible={isVisibleSummary}
           onCancel={this.onCloseVisibleSummary}
           title="项目总结"
+          isMobile={isMobile}
         >
           {summary}
         </MessageModal>

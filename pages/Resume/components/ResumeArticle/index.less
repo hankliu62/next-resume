@@ -1,19 +1,5 @@
 @import 'app.less';
 
-@keyframes continue-loading {
-  0% {
-    content: '.';
-  }
-
-  50% {
-    content: '..';
-  }
-
-  100% {
-    content: '...';
-  }
-}
-
 .resume-article-wrapper {
   display: flex;
   flex-direction: column;
@@ -40,9 +26,15 @@
     color: @white;
 
     &:after {
+      .keyframes(continueLoading, {
+        0% { content: '.'; }
+        50% { content: '..'; }
+        100% { content: '...'; }
+      });
+
       position: absolute;
       top: 0;
-      animation: continue-loading 2s linear infinite;
+      animation: continueLoading 2s linear infinite;
       content: '';
     }
   }
