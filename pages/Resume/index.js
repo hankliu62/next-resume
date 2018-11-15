@@ -53,9 +53,9 @@ class Resume extends Component {
     return (
       <div className="resume-container">
         <Head>
-          <title>刘小聪 - 刘小聪的个人简历 | Web前端开发工程师 | Front-end Web Developer</title>
-          <meta name="keywords" content="刘小聪,个人简历,web前端,工程师,刘小聪的个人简历,frontend,web,developer,job,vue,react" />
-          <meta name="description" content="精通前端，涉猎后端，对前端有着浓厚的兴趣；希望能够在前端这条路上一直走下去。" />
+          <title>刘小聪 - Web前端工程师简历 | Front-end Web Developer</title>
+          <meta name="description" content="刘小聪的Web前端工程师简历，精通前端，涉猎后端，对前端有着浓厚的兴趣；希望能够在前端这条路上一直走下去。" />
+          <meta name="keywords" content="刘小聪，web前端工程师，个人简历，前端开发简历网站，前端工程师简历" />
         </Head>
         <ReactFullpage
           {...options}
@@ -89,7 +89,7 @@ class Resume extends Component {
         </div>
         <div className="pdf-wrapper">
           <Popover placement="top" content={<span>PDF简历</span>}>
-            <a className="link-pdf" href="/resume.pdf" target="_blank">
+            <a className="link-pdf" href="/resume.pdf" target="_blank" title="刘小聪的PDF简历">
               <Icon type="file-pdf" />
             </a>
           </Popover>

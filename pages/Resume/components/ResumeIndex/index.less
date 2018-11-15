@@ -79,16 +79,10 @@
           left: 17px;
           z-index: 2;
 
-          svg {
-            width: 36px;
-            height: 36px;
-            fill: @gray-88;
+          .hk-icon {
+            font-size: 36px;
+            color: @gray-88;
             transition: all .3s ease;
-
-            path {
-              fill: @gray-88;
-              transition: all .3s ease;
-            }
           }
         }
 
@@ -99,12 +93,8 @@
           &.social-account-@{account} {
             &:hover {
               .account-link {
-                svg {
-                  fill: @account-color;
-
-                  path {
-                    fill: @account-color;
-                  }
+                .hk-icon {
+                  color: @account-color;
                 }
               }
 

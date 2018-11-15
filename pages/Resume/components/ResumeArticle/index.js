@@ -15,6 +15,7 @@ export default class ResumeArticle extends PureComponent {
               href={Constants.BlogLink}
               target="_blank"
               rel="noopener noreferrer external nofollow"
+              title="刘小聪的个人博客"
             >
               个人博客
             </a>

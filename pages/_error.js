@@ -34,7 +34,7 @@ export default class Error extends Component {
             <img src={`/images/exceptions/${statusCode}.svg`} alt="" />
           </div>
           <div className="exception-content-info">
-            <h1 className="exception-content-info-title">{statusCode}</h1>
+            <p className="exception-content-info-title">{statusCode}</p>
             <p className="exception-content-info-desc">{translations.app.exception[statusCode]}</p>
             <div className="exception-content-info-actions">
               <Link href="/">

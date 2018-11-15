@@ -74,7 +74,7 @@ export default class ResumeExperience extends PureComponent {
             className="experiences-carousel"
             effect="scrollx"
             isMobile={isMobile}
-            allowArrow
+            allowArrow={isMobile}
             dots={!isMobile}
             leftAllowIconType={isMobile ? 'left' : 'left-circle'}
             rightAllowIconType={isMobile ? 'right' : 'right-circle'}

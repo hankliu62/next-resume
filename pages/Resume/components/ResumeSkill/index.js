@@ -31,7 +31,7 @@ export default class ResumeSkill extends PureComponent {
     return (
       <div className="resume-skill-wrapper">
         <div className="title-wrapper">
-          <h1 className="title">技能</h1>
+          <h2 className="title">技能</h2>
         </div>
 
         <div className="skills-wrapper">

@@ -117,6 +117,10 @@ class MyApp extends App {
                 <script src="/scripts/baidu.statistics.min.js" type="text/javascript" />
               </Head>
               <Component {...pageProps} router={router} isMobile={isMobile} />
+              <span className="hk-icon-es6">
+                <span className="path1" />
+                <span className="path2" />
+              </span>
               <Loading />
             </div>
           </Container>

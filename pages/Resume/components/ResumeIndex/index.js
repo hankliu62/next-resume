@@ -15,7 +15,7 @@ export default class ResumeIndex extends PureComponent {
         </div>
 
         <div className="name-wrapper">
-          <h1 className="name">{Constants.User.Name}</h1>
+          <h2 className="name">{Constants.User.Name}</h2>
         </div>
 
         <div className="signature-wrapper">
@@ -26,7 +26,7 @@ export default class ResumeIndex extends PureComponent {
           <ul className="social-accounts">
             {
               Constants.SocialAccounts.map((account) => {
-                const { type, icon, link } = account;
+                const { type, link, name } = account;
                 return (
                   <li
                     className={classNames('social-account', `social-account-${type}`)}
@@ -38,8 +38,9 @@ export default class ResumeIndex extends PureComponent {
                       href={link}
                       target="_blank"
                       rel="noopener noreferrer external nofollow"
+                      title={`刘小聪的社交账号-${name}`}
                     >
-                      <ReactSVG src={icon} />
+                      <i className={classNames('hk-icon', `hk-icon-${type}`)} />
                     </a>
                   </li>
                 );

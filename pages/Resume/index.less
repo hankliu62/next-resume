@@ -3,7 +3,20 @@
 @import 'app.less';
 
 @slider-menus: index introduction skill experience project article;
+@slider-menus-position-y: -670px -1110px -1330px -450px -890px -10px;
 @slider-menus-length: length(@slider-menus);
+
+.scale-icon-after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 200px;
+  height: 200px;
+  background-image: url('/images/resume/slides/sides_sprites.png');
+  content: "";
+  transform: scale(6 / 200);
+  transform-origin: 0 0;
+}
 
 .resume-container {
   .fullpage-wrapper {
@@ -123,19 +136,14 @@
               width: 10px;
               height: 10px;
               margin: -5px 0 0 -5px;
+              border-radius: 50%;
               opacity: 1;
               transform: scale(3);
               transform-origin: center;
 
               &:last-child {
                 &::after {
-                  position: absolute;
-                  top: 2px;
-                  left: 2px;
-                  width: 6px;
-                  height: 6px;
-                  background-size: cover;
-                  content: "";
+                  .scale-icon-after();
                 }
               }
             }
@@ -186,19 +194,14 @@
                 width: 10px;
                 height: 10px;
                 margin: -5px 0 0 -5px;
+                border-radius: 50%;
                 opacity: 1;
                 transform: scale(3);
                 transform-origin: center;
 
                 &:last-child {
                   &::after {
-                    position: absolute;
-                    top: 2px;
-                    left: 2px;
-                    width: 6px;
-                    height: 6px;
-                    background-size: cover;
-                    content: "";
+                    .scale-icon-after();
                   }
                 }
               }
@@ -208,19 +211,14 @@
               width: 10px;
               height: 10px;
               margin: -5px 0 0 -5px;
+              border-radius: 50%;
               opacity: 1;
               transform: scale(3);
               transform-origin: center;
 
               &:last-child {
                 &::after {
-                  position: absolute;
-                  top: 2px;
-                  left: 2px;
-                  width: 6px;
-                  height: 6px;
-                  background-size: cover;
-                  content: "";
+                  .scale-icon-after();
                 }
               }
             }
@@ -233,6 +231,7 @@
 
         .loop(@index) when(@index <= @slider-menus-length) {
           @menu: extract(@slider-menus, @index);
+          @position-y: extract(@slider-menus-position-y, @index);
 
           &:nth-child(@{index}) {
             a {
@@ -240,7 +239,7 @@
                 span {
                   &:last-child {
                     &::after {
-                      background-image: url('/images/resume/slides/@{menu}.png');
+                      background-position: -10px @position-y;
                     }
                   }
                 }
@@ -253,7 +252,7 @@
                   span {
                     &:last-child {
                       &::after {
-                        background-image: url('/images/resume/slides/@{menu}.png');
+                        background-position: -10px @position-y;
                       }
                     }
                   }
@@ -262,7 +261,7 @@
                 span {
                   &:last-child {
                     &::after {
-                      background-image: url('/images/resume/slides/@{menu}.png');
+                      background-position: -10px @position-y;
                     }
                   }
                 }

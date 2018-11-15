@@ -42,7 +42,7 @@ export default class ResumeProject extends PureComponent {
     return (
       <div className="resume-project-wrapper">
         <div className="title-wrapper">
-          <h1 className="title">项目经历</h1>
+          <h2 className="title">项目经历</h2>
         </div>
 
         <div className="projects-wrapper">
@@ -90,7 +90,7 @@ export default class ResumeProject extends PureComponent {
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer external nofollow"
-                            title="项目链接"
+                            title="刘小聪的项目链接"
                           >
                             <Icon type="link" />
                           </a>

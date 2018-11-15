@@ -3,7 +3,6 @@ import './index.less';
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import ReactSVG from 'react-svg';
 import * as Constants from '~/constants';
 
 export default class ResumeIntroduction extends PureComponent {
@@ -17,7 +16,7 @@ export default class ResumeIntroduction extends PureComponent {
     return (
       <div className="resume-introduction-wrapper">
         <div className="title-wrapper">
-          <h1 className="title">自我介绍</h1>
+          <h2 className="title">自我介绍</h2>
         </div>
 
         <div className="self-introduction-wrapper">
@@ -55,11 +54,7 @@ export default class ResumeIntroduction extends PureComponent {
                 const { type, value } = info;
                 return (
                   <li className="information-item" key={type}>
-                    <ReactSVG
-                      src={`/images/resume/information/${type}.svg`}
-                      className="information-item-icon"
-                    />
-
+                    <i className={classNames('hk-icon', `hk-icon-${type}`, 'information-item-icon')} />
                     <div className="information-item-data">{value}</div>
                   </li>
                 );
