@@ -66,6 +66,11 @@ export default class Platform {
     return Platform.isServer() ? false : /webkit/i.test(window.navigator.userAgent);
   }
 
+  static isSafari = () => {
+    const ua = window.navigator.userAgent;
+    return Platform.isServer() ? false : /Safari/.test(ua) && !/Chrome/.test(ua);
+  }
+
   static emit = (eventType, collapsed) => {
     Platform._eventEmitter.emit(eventType, collapsed);
   }

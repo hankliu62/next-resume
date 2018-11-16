@@ -2,6 +2,7 @@ import './index.less';
 
 import * as Constants from '~/constants';
 import { Carousel } from '~/components';
+import { Platform } from '~/plugins';
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
@@ -33,8 +34,9 @@ export default class ResumeExperience extends PureComponent {
 
   onMouseMove = (e) => {
     const { isMobile } = this.props;
+    const isSafari = Platform.isSafari();
 
-    if (isMobile) {
+    if (isMobile || isSafari) {
       return;
     }
 

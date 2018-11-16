@@ -90,7 +90,7 @@ export default class ResumeProject extends PureComponent {
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer external nofollow"
-                            title="刘小聪的项目链接"
+                            title={`刘小聪的项目-${name}-链接地址`}
                           >
                             <Icon type="link" />
                           </a>
