@@ -34,7 +34,7 @@ export const SocialAccounts = [
 
 export const User = {
   Name: '刘小聪',
-  Signature: '「我们在梦里走过许多路，醒来后却发现自己还在床上。」',
+  Signature: '「曾经的梦想，结果都让别人实现了；以后的梦想，也该轮到自己来完成了！」',
 };
 
 export const Information = [
