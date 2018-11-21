@@ -26,6 +26,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 
 import { reducer as blog } from './Blog';
+import { reducer as postDetail } from './PostDetail';
 import { reducer as resume } from './Resume';
 
 const reducer = combineReducers({
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   loading,
   blog,
   resume,
+  postDetail,
 });
 
 const makeStore = () => {
