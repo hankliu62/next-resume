@@ -11,7 +11,7 @@ const Boom = require('boom');
 const isDev = process.env.NODE_ENV !== 'production';
 
 const setupSSR = require('./ssr');
-const createRouter = require('./router');
+const createRouter = require('./routes/view');
 
 module.exports = async function createApp() {
   const app = new Koa();
@@ -29,7 +29,16 @@ module.exports = async function createApp() {
   app.use(logger());
   app.use(bodyParser());
   app.use(statics(path.join(__dirname, '..', 'static')));
-  app.use(session({}, app));
+  app.use(session({
+    key: 'hk:token',
+    maxAge: 24 * 60 * 60 * 1000,
+    autoCommit: true,
+    overwrite: true,
+    httpOnly: false,
+    signed: true,
+    rolling: false,
+    renew: false,
+  }, app));
 
   if (!isDev) {
     app.use(compress());
@@ -59,9 +68,9 @@ module.exports = async function createApp() {
   });
 
   // Add routes
-  const router = await createRouter();
-  app.use(router.routes());
-  app.use(router.allowedMethods());
+  const viewRouter = await createRouter();
+  app.use(viewRouter.routes(), viewRouter.allowedMethods());
+
 
   return app;
 };

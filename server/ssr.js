@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const NextJs = require('next');
 const translations = require('../resources');
 
-const CookieLang = 'hl/lang';
+const CookieLang = 'hk:lang';
 
 module.exports = async function setupSSR(app) {
   // Setup Next.js
