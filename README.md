@@ -55,6 +55,34 @@ npm run build
 - 依赖找不到, 需要运行 `npm install`. 建议每次 build 前运行 `npm install`.
 
 ## 代码风格
+
+### Script规范(ESLint)
+ESLint 是一个语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码。使用的插件是 `husky` + `eslint`。
+
+可以再根目录的 `.eslintrc.js` 文件中配置规则和添加插件；对于不想要lint的第三方库文件可以配置在 `.eslintignore` 文件中
+
+通过下列命令来检查项目的的 Script 是否符合规范
+
+``` bash
+npm run link:js
+```
+
+**注: 如果觉得目前配置的那条规则不合理，可以讨论修改**
+
+### CSS规范(StyleLint)
+
+校验 CSS 规则，管理团队 CSS 编写规范，在样式表中遵循一致的约定，避免错误。使用的插件是 `husky` + `stylelint`。
+
+`stylelint`拥有超过150条的规则，包括捕捉错误、最佳实践、控制可以使用的语言特性和强制代码风格规范。它支持最新的CSS语法，并且灵活可配置，可以再根目录的 `.stylelintrc` 文件中配置规则和添加插件。
+
+通过下列命令来检查项目的的 CSS 是否符合规范
+
+``` bash
+npm run link:css
+```
+
+**注: 如果觉得目前配置的那条规则不合理，可以讨论修改**
+
 ### Commit message 规范
 
 规定格式如下：

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "rm -rf .next && node server",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:js": "eslint --ext .js src --fix",
+    "lint:css": "stylelint \"**/*.{less,css}\" --fix"
   },
   "repository": {
     "type": "git",
